@@ -1,0 +1,26 @@
+<header>
+  <div class="header-inner content-width contents-tidy">
+    <div class="header-left-block contents-tidy">
+      <div class="air6n6-logo">
+        <%#= image_tag 'air6n6_logo.png' %>
+        <%= link_to image_tag('air6n6_logo.png'), root_url %>
+      </div>
+      
+      <%= form_with url: rooms_path, method: :get, local: true ,class: 'search-box' do |f| %>
+        <%= f.text_field :location, class: 'header-form', placeholder: 'エリア検索' %>
+        <i class="fas fa-map-marker-alt header-form-icon area"></i>
+      <%# end %>
+      
+      <%#= form_with url: rooms_path, method: :get, local: true ,class: 'search-box' do |f| %>
+        <%= f.text_field :name, class: 'header-form', placeholder: 'キーワード検索' %>
+        <i class="fas fa-search header-form-icon keyword"></i>
+        <%= f.submit '', class: 'hide' %>
+      <% end %>
+      
+    </div>
+    <div class="header-right-block">
+      <%= link_to 'ログイン', '#', class: 'login-button login' %>
+      <%= link_to '登録', new_user_path, class: 'login-button signup' %>
+    </div>
+  </div>
+</header>

@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-html, body{
+html, body, h2, form{
   padding: 0;
   margin: 0;
 }
@@ -15,9 +15,22 @@ ul{
   list-style: none;
 }
 
+a{
+  text-decoration: none;
+  color: black;
+  &:active{
+    color: #000000;
+  }
+}
+
+.section-top {
+  padding: 80px 120px;
+}
+
 /*header*/
 header{
   position: fixed;
+  z-index:100;
   width: 100%;
 }
 
@@ -45,16 +58,24 @@ header{
 
 .header-form{
   position:relative;
-  padding: 10px 0;
   border-radius:20px;
+  padding: 10px 0;
   padding-left:32px;
+  margin-right:7px;
 }
 
-.header-form-icon{
+.header-form-icon.area{
   color: #333;
   position:absolute;
   top: 11px;
   left: 14px;
+}
+
+.header-form-icon.keyword{
+  position:absolute;
+  top: 11px;
+  right: 160px;
+  color: #333;
 }
 
 .air6n6-logo {
@@ -62,14 +83,15 @@ header{
   margin-right: 30px;
 }
 
-.air6n6-logo > img{
+.air6n6-logo img{
   height: 100%;
   vertical-align: top;
 }
 
 .login-button{
+  display:inline-block;
   border-radius: 10px;
-  margin: auto;
+  margin-left: 8px;
   width: 80px;
   height: 50px;
   text-align:center;
@@ -84,42 +106,95 @@ header{
   background-color: gray;
 }
 
-/*main section*/
-.section-top {
-  font-family:fantasy;
-  padding: 400px 100px;
-  background-image: url(/assets/background.jpg);
-  /* background-size: auto 100%; */
-  background-size: cover;
-  background-position: right 0;
-  background-repeat: no-repeat;
+.hide{
+  display: none;
 }
 
-.top-block{
-  border-radius: 10px;
-  padding: 5px 20px;
-  width: 800px;
-  background-color: white;
+/*home*/
+.home_pages{
+  .section-top.home {
+    padding: 350px 50px;
+    background-image: url(/assets/background.jpg);
+    background-size: cover;
+    background-position: right 0;
+    background-repeat: no-repeat;
+  }
+
+  .top-block{
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 700px;
+    background-color: white;
+    opacity: 0.95;
+    .top-title{
+      padding-bottom: 25px;
+    }
+    label{
+      font-size: 15px;
+      color: gray;
+    }
+  }
+
+  .top-search-form{
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .top-button{
+    text-align: center;
+    border-radius:10px;
+    width: 100%;
+    margin:15px 0;
+    padding:7px 0;
+    font-size: 15px;
+    background-color: #007bff;
+    color: white;
+  }
 }
 
-.top-block > span{
- font-size: 15px;
- color: gray;
-}
-
-.top-search-form{
-  border-radius: 10px;
-  width: 100%;
-  padding: 10px;
-}
-
-.top-button{
-  text-align: center;
-  border-radius:10px;
-  width: 100%;
-  margin:15px 0;
-  padding:7px 0;
-  font-size: 15px;
-  background-color: #007bff;
-  color: white;
+/* rooms controller */
+.rooms{
+  padding:90px 0;
+  background-color: #fffdf3;
+  .section-top.room-list{
+    background-color: lightblue;
+  }
+  .room-block{
+    display: flow-root;
+    justify-content: space-between;
+  }
+  .room-box{
+    display: inline-block;
+    width: 32%;
+    margin:5px;
+    background-color:white;
+    border-radius:10px;
+    .room-thunmnail{
+      height: 250px;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .room-profile{
+      padding:0 10px 5px;
+      .room-name{
+        font-size: 18px;
+        font-weight: bold;
+        color: #909090;
+      }
+      .room-location{
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .room-price{
+        text-align: right;
+        font-size: 16px;
+        letter-spacing: 1px;
+      }
+    }
+  }
+  
 }

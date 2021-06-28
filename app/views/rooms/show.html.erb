@@ -1,0 +1,24 @@
+
+<section class="section-top show-room">
+  <div class="show-room-block">
+    <div class="room-detail">
+      <div class="room-thunmnail">
+          <%= image_tag 'room_sample.jpeg' %>
+      </div>
+      <div class="room-profile">
+        <p class="room-name"><%= @room.name %></p>
+        <p class="room-location"><%= @room.location %></p>
+        <p class="room-introduction"><%= @room.introduction %></p>
+        <p class="room-price">₡ <%= @room.price %></p>
+        <p><%= link_to 'このルームのオーナー情報を表示', user_path(@room.user_id) %></p>
+      </div>
+      <%= link_to '編集する', edit_room_path(@room) %>
+      
+    </div>
+    <div class="room-reservation">
+      
+    </div>
+  </div>
+  
+  
+</section>
