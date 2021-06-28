@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'users/new'
-  get 'users/edit'
-  get 'users/show'
-  #get '/home', to: 'home_pages#home'
   root 'home_pages#home'
+  get    '/signup', to: 'users#new'
+  get    '/login',  to: 'sessions#new'
+  post   '/login',  to: 'sessions#create'
+  delete '/login',  to: 'sessions#destroy'
   resources :users
   resources :rooms
 end

@@ -19,8 +19,13 @@
       
     </div>
     <div class="header-right-block">
-      <%= link_to 'ログイン', '#', class: 'login-button login' %>
-      <%= link_to '登録', new_user_path, class: 'login-button signup' %>
+      <% if logged_in? %>
+        <%= link_to 'マイページ', current_user, class: 'login-button login' %>
+        <%= link_to 'ログアウト', login_path, method: :delete, class: 'login-button login' %>
+      <% else %>
+        <%= link_to 'ログイン', login_path, class: 'login-button login' %>
+        <%= link_to '登録', signup_path, class: 'login-button signup' %>
+      <% end %>
     </div>
   </div>
 </header>

@@ -1,7 +1,15 @@
 
 introductions = ['よろしくお願いします。','ぜひ！遊びに来てください！','地方loveです','都会に住みたい！！！！']
 
-100.times do
+User.create!(
+    name: "yohei_admin", 
+    email: "aaaaa@abc.com", 
+    introduction: "私が神です",
+    password:              "foobar",
+    password_confirmation: "foobar",
+    )
+    
+30.times do
   sample_name = Gimei.kanji
   sample_email = Faker::Internet.email
 # time = Faker::Date.forward(50)
@@ -9,7 +17,9 @@ introductions = ['よろしくお願いします。','ぜひ！遊びに来て�
   User.create!(
     name: sample_name, 
     email: sample_email, 
-    introduction: introductions[rand(0..2)]
+    introduction: introductions[rand(0..2)],
+    password:              "foobar",
+    password_confirmation: "foobar",
   )
 end
 
