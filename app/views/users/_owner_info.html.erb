@@ -1,0 +1,35 @@
+<% if user.rooms.present? %>
+  <h3>このオーナーのルーム情報</h3>
+  <table class="reservations_list">
+    <tr>
+      <th>ルーム写真</th>
+      <th>ルーム名</th>
+      <th>ルーム紹介</th>
+      <th>ロケーション</th>
+      <th>料金(1泊)</th>
+      <th>ルーム登録日</th>
+    </tr>
+      
+    <% user.rooms.each do |room| %>
+      <tr>
+        <td class="room-thumbnail">
+          <% if room.image? %>
+            <%= image_tag(room.image.thumb.url) %>
+          <% else %>
+            <%= image_tag('room_sample.jpeg') %>
+          <% end %>
+        </td>
+        <td><%= link_to room.name, room %></td>
+        <td><%= room.introduction %></td>
+        <td><%= room.location %></td>
+        <td>¥ <%= room.price %></td>
+        <td><%= room.created_at.to_s(:datetime_jp) %></td>
+      </tr>
+    <% end %>  
+  </table> 
+<% else %>
+  <h3>このオーナーのルーム情報はありません</h3>
+<% end %>
+  
+
+

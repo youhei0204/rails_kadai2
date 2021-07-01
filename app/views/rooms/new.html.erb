@@ -1,21 +1,13 @@
+<section class="section-top register-room">
 
-<section class="section-top new-room">
-  <div class="register-box">
-    <h4>新しいルームを登録</h4>
-    <%= form_with(model: @room, local: true) do |f| %>
-    <%= f.label :name, 'ルーム名' %>
-      <%= f.text_field :name, placeholder: 'ルーム名を入力'%>
-
-      <%= f.label :introduction, 'ルーム紹介' %>
-      <%= f.text_area :introduction, placeholder: 'ルーム紹介を入力'%>
-
-      <%= f.label :location, '住所' %>
-      <%= f.text_field :location, placeholder: '住所を入力'%>
-
-      <%= f.label :price, 'ルーム料金' %>
-      <%= f.text_field :price, placeholder: '1泊1人あたりのルーム料金を入力'%>
-
-      <%= f.submit '登録', class: 'top-button' %>
-    <% end %>
+  <div class="reservation-detail">
+    <h3 class="title">新しいルームを登録する</h3>
+    <%= render 'room_form', room: @room, submit_text: "登録を完了する" %>
   </div>
+ 
 </section>
+
+
+
+
+

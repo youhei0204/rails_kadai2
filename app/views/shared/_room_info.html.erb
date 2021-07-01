@@ -1,0 +1,20 @@
+<div class="_room_info" >
+  <h1 class="room-name"><%= room.name if !room.id.nil? %></h1>
+  <p class="room-text"><%= room.introduction if !room.id.nil? %></p>
+  <div class="room-thunmbnail">
+    <% if room.image? %>
+      <%= image_tag room.image.thumb.url %>
+    <% else %>
+      <%= image_tag 'room_sample.jpeg' %>
+    <% end %>
+  </div>
+  <% if !room.id.nil? %>
+    <div class="room-profile">
+      <span class="room-location">
+        <i class="fas fa-map-marker-alt header-form-icon"></i>
+        <%= room.location %>
+      </span>
+      <span class="room-price">¥<span id = "price"><%= room.price %></span> /泊</span>
+    </div>
+  <% end %>
+</div>
