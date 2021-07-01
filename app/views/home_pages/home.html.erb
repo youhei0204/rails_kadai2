@@ -1,14 +1,11 @@
-
-  <section class="section-top home">
-    <div class="top-block">
-      <h2 class="top-title">Air 6n6 で、<br>素敵な日本を体験しませんか？</h2>
-
-      <%= form_with url: rooms_path, method: :get, local: true do |f| %>
-        <%= f.label :location, 'エリア' %>
-        <%= f.text_field :location, class: 'top-search-form', placeholder: 'ex. 東京' %>
-        <%= f.submit '探す', class: 'top-button' %>
-        <%= link_to('新しいルームを登録する', new_room_path) if logged_in? %>
-      <% end %>
-      
-    </div>
-  </section>
+<section class="section-top home">
+  <div class="top-block">
+    <h2 class="top-title">Air 6n6 で、<br>素敵な日本を体験しませんか？</h2>
+    <%= form_with url: rooms_path, method: :get, local: true do |f| %>
+      <%= f.label :location, 'エリア' %>
+      <%= f.text_field :location, class: 'top-search-form', placeholder: 'ex. 東京' %>
+      <%= f.submit '探す', class: 'top-button' %>
+      <%= link_to('新しいルームを登録する', new_room_path) if logged_in? %>
+    <% end %>
+  </div>
+</section>

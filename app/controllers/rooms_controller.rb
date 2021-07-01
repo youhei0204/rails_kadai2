@@ -7,13 +7,12 @@ class RoomsController < ApplicationController
 
   def index
     #エリア,キーワード入力時
-    @rooms = Room.all
     if params[:name].present? || params[:location].present?
-      @rooms = Room.where('name like ?', "%#{params[:name]}%").where('location like ?', "%#{params[:location]}%")
+      @rooms = Room.where('name like ?', "%#{params[:name]}%").where('location like ?', "%#{params[:location]}%").order(updated_at: "DESC")
       @keyword = params[:name]
       @location = params[:location]
     else
-      @rooms = Room.all
+      @rooms = Room.all.order(updated_at: "DESC")
     end
   end
   

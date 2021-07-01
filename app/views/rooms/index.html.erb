@@ -1,8 +1,7 @@
-
-  <section class="section-top room-list">
-    <h2>ルーム一覧</h2>
-    <div class="room-block">
-    <% @rooms.each do |room| %>
+<section class="section-top room-list">
+  <h2>ルーム一覧   (検索結果：<%= @rooms.count %>件)</h2>
+  <div class="room-block">
+   <% @rooms.each do |room| %>
       <%= link_to room, class: 'room-box' do %>
       <!--div class="room-box"-->
         <div class="room-thunmnail">
@@ -19,6 +18,5 @@
         </div>
       <% end %>  
     <% end %>  
-
-    </div>  
-  </section>
+  </div>  
+</section>
