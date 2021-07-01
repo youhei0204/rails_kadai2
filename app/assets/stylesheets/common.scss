@@ -5,6 +5,9 @@ html, body, h2, form{
   padding: 0;
   margin: 0;
 }
+body{
+      background-color: #fffdf3;
+}
 main{
   padding-top: 120px;
   padding-bottom: 100px;
@@ -160,6 +163,7 @@ header{
 .home_pages{
   padding: 0;
   .section-top.home {
+    min-height: 100vh;
     padding: 350px 50px 100px;
     background-image: url(/assets/background.jpg);
     background-size: cover;
@@ -312,7 +316,7 @@ header{
   .reservations_list{
     border-spacing: 0 10px;
     tr:nth-child(even){
-        background-color: #f9fafb;
+        background-color: #FFFFDF  ;
     }
     td{
       padding: 0 15px;
@@ -343,7 +347,7 @@ header{
   margin-left: 20px;
   border-spacing: 0 10px;
   tr:nth-child(even){
-      background-color: #f9fafb;
+      background-color: #FFFFDF;
   }
   td{
     padding: 0 15px;

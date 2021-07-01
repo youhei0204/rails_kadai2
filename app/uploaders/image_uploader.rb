@@ -45,7 +45,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
   
-  #リサイズ、画像形式を変更に必要
+#リサイズ、画像形式を変更に必要
   include CarrierWave::RMagick
 
 #上限変更

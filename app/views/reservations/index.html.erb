@@ -1,6 +1,7 @@
 
   <section class="section-top">
-    <h2>予約した部屋一覧</h2>
+    <h2>予約済みルーム一覧</h2>
+    <% if @reservations.present? %>
       
     <table class="reservations_list">
       <tr>
@@ -30,5 +31,7 @@
       <% end %>  
     </table> 
 
-  
+  <% else %>
+  <p>予約済みのルームはありません</p>
+  <% end%>
   </section>
