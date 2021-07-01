@@ -1,24 +1,31 @@
-
-<section class="section-top show-room">
-  <div class="show-room-block">
-    <div class="room-detail">
-      <div class="room-thunmnail">
-          <%= image_tag 'room_sample.jpeg' %>
+<section class="section-top room-detail">
+  <div class="reservation-block">
+    <%= render 'shared/room_info', room: @room %>
+    
+    <% if owner?(@room) %>
+      <div class="guests_info">
+        <%= render 'guests_list',room: @room %>
       </div>
-      <div class="room-profile">
-        <p class="room-name"><%= @room.name %></p>
-        <p class="room-location"><%= @room.location %></p>
-        <p class="room-introduction"><%= @room.introduction %></p>
-        <p class="room-price">₡ <%= @room.price %></p>
-        <p><%= link_to 'このルームのオーナー情報を表示', user_path(@room.user_id) %></p>
+    <% else %>
+      <div class="reservation-form">
+        <h3 class="title">このルームを予約する</h3>
+        <%= render 'shared/reservation_form',
+          reservation: @reservation, room_id: @room.id, submit_text: "変更を完了する" %>
       </div>
-      <%= link_to '編集する', edit_room_path(@room) %>
-      
-    </div>
-    <div class="room-reservation">
-      
-    </div>
+    <% end %>
+    
   </div>
-  
-  
+  <div class="another-menu">
+    <% if !owner?(@room) %>
+      <p><%= link_to('このルームのオーナー情報を表示', @room.user) %></p>
+      <p><%= link_to '予約済みルーム一覧', :reservations %></p>
+    <% else %>
+      <ul>
+        <li><%= link_to 'このルーム情報を編集する', edit_room_path(@room) %></li>
+        <li><%= link_to 'このルームを削除する', @room, method: :delete, data: { confirm: "本当にキャンセルしますか？" } %></li>
+      </ul>
+    <% end %>
+  </div>
 </section>
+
+<%= javascript_pack_tag 'reservation/calc_total_fee' %>

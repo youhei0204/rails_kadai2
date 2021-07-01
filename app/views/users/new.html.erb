@@ -1,21 +1,10 @@
-
-<section class="section-top new-room">
-  <div class="register-box">
-    <h4>新規登録</h4>
-    <%= form_with(model: @user, local: true) do |f| %>
-      <%= f.label :name, '名前' %>
-      <%= f.text_field :name, placeholder: '名前を入力'%>
-
-      <%= f.label :email, 'Eメール' %>
-      <%= f.email_field :email, placeholder: 'メールアドレスを入力'%>
-
-      <%= f.label :password, 'パスワード' %>
-      <%= f.password_field :password %>
-      
-      <%= f.label :password_confirmation, 'パスワード再入力' %>
-      <%= f.password_field :password_confirmation %>
-
-      <%= f.submit '登録!', class: 'top-button' %>
-    <% end %>
+<section class="section-top signup picture">
+  <div class="user-form-box">
+    <h2>新規ユーザ登録</h2>
+     
+    <section class="user_form">
+      <%= render 'user_form', user: @user, submit_text: '登録を完了する' %>
+    </section>
+    
   </div>
 </section>

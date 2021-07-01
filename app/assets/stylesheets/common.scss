@@ -1,30 +1,71 @@
-// Place all the styles related to the home_pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-
 *{
   box-sizing: border-box;
 }
-
 html, body, h2, form{
   padding: 0;
   margin: 0;
 }
-
+body{
+      background-color: #fffdf3;
+}
+main{
+  padding-top: 120px;
+  padding-bottom: 100px;
+}
 ul{
   list-style: none;
 }
-
 a{
   text-decoration: none;
   color: black;
-  &:active{
-    color: #000000;
+}
+input{
+  padding: 3px 2px;
+}
+textarea{
+  height: 100px;
+  width: 250px;
+}
+.content-width{
+  padding-right: 100px;
+  padding-left: 100px;
+}
+.contents-tidy{
+  display: flex;
+}
+.submit-button{
+  padding: 7px 16px;
+  margin-top: 8px;
+  border-radius: 20px;
+  border: 0.5px solid darkgray;
+  background-color: #a9ceec;
+}
+.hide{
+  display: none;
+}
+
+/*flash*/
+.flash{
+  position: relative;
+  width: 100%;
+  padding: 15px 20px;
+  top: 90px;
+  font-size: 15px;
+  &.success{
+    color: blue;
+    background-color: lightblue;
+  }
+  &.info{
+    color: green;
+    background-color: lightgreen;
   }
 }
 
-.section-top {
-  padding: 80px 120px;
+/* error_message */
+.error_message{
+  color: red;
+  font-size: 17px;
+  list-style: circle;
 }
 
 /*header*/
@@ -32,98 +73,114 @@ header{
   position: fixed;
   z-index:100;
   width: 100%;
+  .header-inner{
+    margin-right: 30px;
+    margin-left: 30px;
+    &.contents-tidy{
+      justify-content: space-between;
+      align-items:center;
+    }
+  }
+  .search-box{
+    position:relative;
+    margin:20px 5px;
+  }
+  .header-form{
+    position:relative;
+    border-radius:20px;
+    padding: 10px 0;
+    padding-left:32px;
+    margin-right:7px;
+  }
+  .header-form-icon{
+    &.area{
+      color: #333;
+      position:absolute;
+      top: 11px;
+      left: 14px;
+    }
+    &.keyword{
+      position:absolute;
+      top: 11px;
+      right: 160px;
+      color: #333;
+    }
+  }
+  .air6n6-logo {
+    height: 80px;
+    margin-right: 30px;
+    img{
+      height: 100%;
+      vertical-align: top;
+    }
+  }
+  .header-right-block{
+    background-color: white;
+    display:flex;
+    position: relative;
+    justify-content: space-around;
+    border: 2px gray solid;
+    border-radius: 30px;
+    width: 170px;
+    height: 40px;
+    &.logged_in{
+      width: 200px;
+    }
+  }
+  .login-button{
+    display:flex;
+    width: 70px;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-family: 'fantasy';
+    color: #333333;
+    &.logged_in{
+      width: 100px;
+    }
+    &:hover{
+      opacity: 0.8;
+    }
+    &.signup{
+      font-weight: bold;
+      &:after{
+        content: '';
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        top: 10%;
+        width: 2px;
+        height: 80%;
+        background-color: gray;
+      }
+    }
+    &.login{
+    }
+  }
 }
 
-.content-width{
-  margin-right: 30px;
-  margin-left: 30px;
-}
-
-.contents-tidy{
-  display: flex;
-}
-
-.header-inner.contents-tidy{
-  justify-content: space-between;
-}
-
-.header-inner.contents-tidy{
-  align-items:center;
-}
-
-.search-box{
-  position:relative;
-  margin:20px 5px;
-}
-
-.header-form{
-  position:relative;
-  border-radius:20px;
-  padding: 10px 0;
-  padding-left:32px;
-  margin-right:7px;
-}
-
-.header-form-icon.area{
-  color: #333;
-  position:absolute;
-  top: 11px;
-  left: 14px;
-}
-
-.header-form-icon.keyword{
-  position:absolute;
-  top: 11px;
-  right: 160px;
-  color: #333;
-}
-
-.air6n6-logo {
-  height: 80px;
-  margin-right: 30px;
-}
-
-.air6n6-logo img{
-  height: 100%;
-  vertical-align: top;
-}
-
-.login-button{
-  display:inline-block;
-  border-radius: 10px;
-  margin-left: 8px;
-  width: 80px;
-  height: 50px;
-  text-align:center;
-  color:white;
-}
-
-.login-button.login{
-  background-color: #007bff;;
-}
-
-.login-button.signup{
-  background-color: gray;
-}
-
-.hide{
-  display: none;
+.picture{
+    background-image: url(/assets/back_picture.jpeg);
+    background-size: 550px 450px;
+    background-position: top 50px right 100px;
+    background-repeat: no-repeat;
 }
 
 /*home*/
 .home_pages{
+  padding: 0;
   .section-top.home {
-    padding: 350px 50px;
+    min-height: 100vh;
+    padding: 350px 50px 100px;
     background-image: url(/assets/background.jpg);
     background-size: cover;
     background-position: right 0;
     background-repeat: no-repeat;
   }
-
   .top-block{
-    border-radius: 10px;
     padding: 20px;
     max-width: 700px;
+    border-radius: 10px;
     background-color: white;
     opacity: 0.95;
     .top-title{
@@ -134,43 +191,112 @@ header{
       color: gray;
     }
   }
-
   .top-search-form{
-    border-radius: 10px;
-    width: 100%;
     padding: 10px;
-  }
-
-  .top-button{
-    text-align: center;
-    border-radius:10px;
     width: 100%;
+    border-radius: 10px;
+  }
+  .top-button{
     margin:15px 0;
     padding:7px 0;
+    width: 100%;
+    border-radius:10px;
     font-size: 15px;
-    background-color: #007bff;
     color: white;
+    text-align: center;
+    background-color: #007bff;
   }
 }
 
-/* rooms controller */
-.rooms{
-  padding:90px 0;
-  background-color: #fffdf3;
-  .section-top.room-list{
-    background-color: lightblue;
+/*users controller*/
+.users{
+  .user-page-title{
+    padding-bottom: 20px;
   }
+  .user-profile-block{
+    display: flex; 
+  }
+  .user-thumbnail{
+    width: 400px;
+    height: 300px;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .user-profile{
+    margin-left: 30px;
+    font-size: 18px;
+    table{
+      text-align: left;
+      th{
+        padding-bottom: 20px;
+        min-width: 100px;
+      }
+      td{
+        margin-left: 15px;
+        padding-bottom: 20px;
+        max-width: 500px;
+      }
+    }
+  }
+  .user-menu{
+    padding: 0;
+    margin-top: 30px;
+    font-size: 17px;
+    a{
+      color: #909090;
+    }
+  }
+  .section-owner{
+    margin-top: 100px;
+  }
+}
+
+/* login */
+.sessions{
+  .login{
+    padding-top: 50px;
+    padding-bottom: 150px;
+  }
+}
+
+/* login, users#new,edit */
+.user-form-box{
+  .user-form{
+    padding: 20px 0;
+    border-spacing: 20px 10px;
+    font-size: 18px;
+    text-align: left;
+  }
+  .new-user-link{
+    display: block;
+    padding-top: 10px;
+    font-size:16px;
+    a{
+      color: #909090;
+    }
+  }
+}
+
+/* rooms controller #index */
+.rooms{
+  background-color: #fffdf3;
   .room-block{
+    margin-top: 30px;
     display: flow-root;
     justify-content: space-between;
   }
   .room-box{
     display: inline-block;
-    width: 32%;
-    margin:5px;
+    width: 30%;
+    margin:10px;
     background-color:white;
-    border-radius:10px;
+
+    border: 2px gray solid;
     .room-thunmnail{
+      overflow: hidden;
       height: 250px;
       img{
         width: 100%;
@@ -181,11 +307,13 @@ header{
     .room-profile{
       padding:0 10px 5px;
       .room-name{
+        height: 30px;
         font-size: 18px;
         font-weight: bold;
         color: #909090;
       }
       .room-location{
+        height: 30px;
         font-size: 16px;
         font-weight: bold;
       }
@@ -196,5 +324,127 @@ header{
       }
     }
   }
-  
+}
+
+/* reservations#index, user#show */
+.reservations, .users{
+  .reservations_list{
+    border-spacing: 0 10px;
+    tr:nth-child(even){
+        background-color: #FFFFDF  ;
+    }
+    td{
+      padding: 0 15px;
+      border-bottom: 1px solid #eaedef;
+      max-width: 300px;
+      overflow-wrap:  break-word;
+    }
+    th{
+      max-width: 300px;
+      padding: 8px 15px;
+      border-top: 1px lightgray solid;
+      border-bottom: 1px lightgray solid;
+    }
+    .room-thumbnail{
+      width: 300px;
+      height: 200px;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+/* _guests_info */
+.guests_list{
+  margin-left: 20px;
+  border-spacing: 0 10px;
+  tr:nth-child(even){
+      background-color: #FFFFDF;
+  }
+  td{
+    padding: 0 15px;
+    border-bottom: 1px solid #eaedef;
+    max-width: 300px;
+    overflow-wrap:  break-word;
+  }
+  th{
+    font-size: 15px;
+    max-width: 300px;
+    padding: 8px 15px;
+    border-top: 1px lightgray solid;
+    border-bottom: 1px lightgray solid;
+  }
+  .room-thumbnail{
+    width: 300px;
+    height: 200px;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+/* shared/_room_info*/
+._room_info{
+  .room-name{
+    margin-bottom: 10px;
+    font-size: 25px;
+  }
+  .room-thunmbnail{
+    width: 550px;
+    height: 380px;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .room-profile{
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+    span + span{
+      margin-left: 10px;
+    }
+  }
+}
+
+/*rooms#show, reservation#show,edit */
+.rooms, .reservations{
+  .reservation-block{
+    display: flex;
+    justify-content: space-around;
+   
+  }
+  .reservation-form, .reservation-detail{
+    padding-top: 30px;
+    font-size: 18px;
+    .title{
+      font-size: 22px;
+      margin-top:10px;
+    }
+    .reservation-info{
+      border-top: 1px lightgray solid;
+      border-bottom: 1px lightgray solid;
+      border-spacing: 20px 40px;
+      text-align:left;
+    }
+
+    .login-btn{
+      display: inline-block;
+      margin-top: 20px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      border: 1px gray solid;
+      background-color: white;
+    }
+  }
+  .another-menu{
+    margin-top: 40px;
+    margin-left: 20px;
+  }
 }
