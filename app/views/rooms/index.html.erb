@@ -1,0 +1,22 @@
+<section class="section-top room-list">
+  <h2>ルーム一覧   (検索結果：<%= @rooms.count %>件)</h2>
+  <div class="room-block">
+   <% @rooms.each do |room| %>
+      <%= link_to room, class: 'room-box' do %>
+      <!--div class="room-box"-->
+        <div class="room-thunmnail">
+          <% if room.image? %>
+            <%= image_tag room.image.url %>
+          <% else %>
+            <%= image_tag('room_sample.jpeg') %>
+          <% end %>
+        </div>
+        <div class="room-profile">
+          <p class="room-name"><%= room.name %></p>
+          <p class="room-location"><%= room.location %></p>
+          <p class="room-price">¥ <%= room.price %></p>
+        </div>
+      <% end %>  
+    <% end %>  
+  </div>  
+</section>

@@ -1,0 +1,11 @@
+<section class="section-top">
+  <div class="reservation-block">
+    
+    <%= render 'shared/room_info', room: @room %>
+    <div class="reservation-detail">
+      <h3 class="title">ルーム情報を変更する</h3>
+      <%= render 'room_form', room: @room, submit_text: "更新" %>
+    </div>
+    
+  </div>
+</section>

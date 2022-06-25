@@ -1,0 +1,31 @@
+<section class="section-top room-detail">
+  <div class="reservation-block">
+    <%= render 'shared/room_info', room: @room %>
+    
+    <% if owner?(@room) %>
+      <div class="guests_info">
+        <%= render 'guests_list',room: @room %>
+      </div>
+    <% else %>
+      <div class="reservation-form">
+        <h3 class="title">このルームを予約する</h3>
+        <%= render 'shared/reservation_form',
+          reservation: @reservation, room_id: @room.id, submit_text: "変更を完了する" %>
+      </div>
+    <% end %>
+    
+  </div>
+  <div class="another-menu">
+    <% if !owner?(@room) %>
+      <p><%= link_to('このルームのオーナー情報を表示', @room.user) %></p>
+      <p><%= link_to '予約済みルーム一覧', :reservations %></p>
+    <% else %>
+      <ul>
+        <li><%= link_to 'このルーム情報を編集する', edit_room_path(@room) %></li>
+        <li><%= link_to 'このルームを削除する', @room, method: :delete, data: { confirm: "本当にキャンセルしますか？" } %></li>
+      </ul>
+    <% end %>
+  </div>
+</section>
+
+<%= javascript_pack_tag 'reservation/calc_total_fee' %>
